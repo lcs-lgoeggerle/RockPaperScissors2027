@@ -17,9 +17,9 @@ import SwiftUI
 
 // The picture for each move. These are emoji, so they are just text.
 // TRY: Change these to other emoji to give the game a new theme.
-let rockEmoji: String = "🪨"
-let paperEmoji: String = "📄"
-let scissorsEmoji: String = "✂️"
+let rockEmoji: String = "😈"
+let paperEmoji: String = "👻"
+let scissorsEmoji: String = "🎃"
 
 // The game itself: what it remembers, what it shows on the screen,
 // and what it does when you click a button.
@@ -38,21 +38,22 @@ struct RockPaperScissorsView: View {
     @State var computerEmoji: String = "❓"
 
     // What happened in the last round.
-    @State var result: String = "Let's play!"
+    @State var result: String = "Do you dare play ?"
 
     // How many rounds have been played.
     @State var roundsPlayed: Int = 0
 
     // MARK: - Computed properties
-
+  
+    
     var body: some View {
         VStack(spacing: 24) {
 
             // The title at the top of the screen.
-            Text("Rock Paper Scissors")
+            Text("Who is gone win Halloween")
                 .font(.largeTitle)
                 .bold()
-                .foregroundStyle(Color.teal)
+                .foregroundStyle(Color.orange)
                 // Shrink the title a little if it does not fit on one line.
                 .lineLimit(1)
                 .minimumScaleFactor(0.5)
@@ -73,7 +74,7 @@ struct RockPaperScissorsView: View {
 
                 Text("vs")
                     .font(.title)
-                    .foregroundStyle(Color.secondary)
+                    .foregroundStyle(Color.orange)
 
                 VStack(spacing: 8) {
                     Label("Computer", systemImage: "desktopcomputer")
@@ -86,7 +87,7 @@ struct RockPaperScissorsView: View {
                 .frame(maxWidth: .infinity)
             }
             .padding(.vertical)
-            .background(Color.teal.opacity(0.15))
+            .background(Color.orange.opacity(0.15))
             .clipShape(RoundedRectangle(cornerRadius: 24))
 
             // The result of the round.
@@ -100,7 +101,7 @@ struct RockPaperScissorsView: View {
             // The code inside the braces runs when that button is clicked.
             Text("Choose your move")
                 .font(.headline)
-                .foregroundStyle(Color.secondary)
+                .foregroundStyle(Color.orange)
 
             HStack(spacing: 12) {
                 Button {
@@ -109,7 +110,7 @@ struct RockPaperScissorsView: View {
                     VStack {
                         Text(rockEmoji)
                             .font(.system(size: 44))
-                        Text("Rock")
+                        Text("Devil")
                     }
                     .frame(maxWidth: .infinity)
                 }
@@ -120,7 +121,7 @@ struct RockPaperScissorsView: View {
                     VStack {
                         Text(paperEmoji)
                             .font(.system(size: 44))
-                        Text("Paper")
+                        Text("Ghost")
                     }
                     .frame(maxWidth: .infinity)
                 }
@@ -131,7 +132,7 @@ struct RockPaperScissorsView: View {
                     VStack {
                         Text(scissorsEmoji)
                             .font(.system(size: 44))
-                        Text("Scissors")
+                        Text("Pumpkin")
                     }
                     .frame(maxWidth: .infinity)
                 }
@@ -139,17 +140,19 @@ struct RockPaperScissorsView: View {
             .buttonStyle(.bordered)
             .font(.headline)
             // TRY: Change teal to another colour. Change it in the title and the moves box too.
-            .tint(Color.teal)
+            .tint(Color.orange)
 
             Text("Rounds played: \(roundsPlayed)")
                 .font(.headline)
-                .foregroundStyle(Color.secondary)
+                .foregroundStyle(Color.orange)
+        
         }
         .padding(32)
         .fontDesign(.rounded)
         // How big the game's window is on the Mac. It can be made taller or wider.
         .frame(minWidth: 520, minHeight: 640)
     }
+  
 
     // MARK: - Functions
 
@@ -199,11 +202,11 @@ struct RockPaperScissorsView: View {
 
         if playerMove == computerMove {
             // TRY: Change what the game says when there is a tie.
-            result = "It's a tie!"
+            result = "Nobody Wins!"
         } else {
             // This is where the game needs your help.
             // Who won: you, or the computer?
-            result = "Someone won"
+            result = "You won Halloween!"
         }
     }
 }
